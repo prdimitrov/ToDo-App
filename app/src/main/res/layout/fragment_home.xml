@@ -14,8 +14,8 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/colorPrimary"
         android:contentDescription="image"
-        android:src="@drawable/baseline_note_add_35"
-        app:backgroundTint="@color/secondaryColor"
+        android:src="@drawable/baseline_note_add_24"
+        app:backgroundTint="#f8d3c5"
         app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
