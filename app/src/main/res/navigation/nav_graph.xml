@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.todo_app.HomeFragment"
+        android:name="com.example.todo_app.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/newNoteFragment"
-        android:name="com.example.todo_app.NewNoteFragment"
+        android:name="com.example.todo_app.fragment.NewNoteFragment"
         android:label="fragment_new_note"
         tools:layout="@layout/fragment_new_note" />
     <fragment
         android:id="@+id/updateNoteFragment"
-        android:name="com.example.todo_app.UpdateNoteFragment"
+        android:name="com.example.todo_app.fragment.UpdateNoteFragment"
         android:label="fragment_update_note"
         tools:layout="@layout/fragment_update_note" />
 </navigation>
