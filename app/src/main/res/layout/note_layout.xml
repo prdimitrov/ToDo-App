@@ -1,63 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/noteLayout_cardView"
-        android:background="#ffffff"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="5dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/noteLayout_cardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="16dp">
+            android:background="#ffffff"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
-                android:id="@+id/noteLayout_noteTitle_linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/noteLayout_noteTitle_textView"
+                <LinearLayout
+                    android:id="@+id/noteLayout_noteTitle_linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="200"
-                    android:text="Note title"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/ib_color"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/noteLayout_noteTitle_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="200"
+                        android:text="Note title"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/ib_color"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvNoteBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:maxHeight="170dp"
+                    android:text="Type Something..."
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvNoteBody"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:maxHeight="170dp"
-                android:text="Type Something..."
-                android:textColor="#000000"
-                android:textSize="16sp" />
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
