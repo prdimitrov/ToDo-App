@@ -20,5 +20,5 @@ interface NoteDAO {
     @Query(value = "SELECT * FROM notes_table ORDER BY id DESC")
     fun getAllNotes() : LiveData<List<Note>>
     @Query("SELECT * FROM notes_table WHERE note_title LIKE :querySearch OR note_body LIKE :querySearch")
-    fun searchNote(querySearch: Query) : LiveData<List<Note>>
+    fun searchNote(querySearch: String?) : LiveData<List<Note>>
 }
