@@ -42,13 +42,14 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
         notesViewModel = (activity as MainActivity).noteViewModel
         mView = view
 
+        setHasOptionsMenu(true)
     }
 
     private fun saveNote(view: View) {
-        val noteTitle = binding?.newNoteFragmentNoteTitle.toString().trim()
-        val noteBody = binding?.newNoteFragmentNoteBody.toString().trim()
+        val noteTitle = binding?.newNoteFragmentNoteTitle?.text.toString().trim()
+        val noteBody = binding?.newNoteFragmentNoteBody?.text.toString().trim()
 
-        if (noteTitle.isNullOrEmpty()) {
+        if (noteTitle.isNotEmpty() && noteBody.isNotEmpty()) {
             val note = Note(0, noteTitle, noteBody)
 
             notesViewModel.addNote(note)
@@ -57,7 +58,7 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
 
             view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
         } else {
-            Toast.makeText(mView.context, "Please enter note title", Toast.LENGTH_LONG).show()
+            Toast.makeText(mView.context, "Please enter both title and body", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -72,10 +73,13 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
         binding = null
     }
 
-    override fun onContextItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_save -> saveNote(mView)
+            R.id.menu_save -> {
+                saveNote(mView)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onContextItemSelected(item)
     }
 }

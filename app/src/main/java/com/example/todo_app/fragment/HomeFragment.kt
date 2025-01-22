@@ -7,7 +7,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.todo_app.MainActivity
@@ -17,7 +18,7 @@ import com.example.todo_app.databinding.FragmentHomeBinding
 import com.example.todo_app.model.Note
 import com.example.todo_app.viewmodel.NoteViewModel
 
-class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener {
+class HomeFragment : Fragment(R.layout.fragment_home), OnQueryTextListener {
 
     private var binding: FragmentHomeBinding? = null
     private lateinit var notesViewModel: NoteViewModel
@@ -59,7 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
 
             activity?.let {
                 notesViewModel.getAllNotes().observe(viewLifecycleOwner) { notes ->
-                    noteAdapter.getDiffer().submitList(notes)
+                    noteAdapter.submitList(notes)
                     updateUI(notes)
                 }
             }
@@ -77,6 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
         menu.clear()
         inflater.inflate(R.menu.menu_home, menu)
 
@@ -84,6 +86,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         mMenuSearch.isSubmitButtonEnabled = false
         mMenuSearch.setOnQueryTextListener(this)
     }
+
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         query?.let { searchNote(it) }
@@ -98,7 +101,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     private fun searchNote(query: String) {
         val searchQuery = "%$query"
         notesViewModel.searchNote(searchQuery).observe(viewLifecycleOwner) { list ->
-            noteAdapter.getDiffer().submitList(list)
+            noteAdapter.submitList(list)
         }
     }
 
@@ -106,4 +109,5 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         super.onDestroyView()
         binding = null
     }
+
 }

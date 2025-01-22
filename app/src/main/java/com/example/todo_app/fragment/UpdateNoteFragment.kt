@@ -55,13 +55,13 @@ class UpdateNoteFragment : Fragment(R.layout.fragment_update_note) {
             val title = binding?.updateNoteFragmentNoteTitle?.text.toString().trim()
             val body = binding?.updateNoteFragmentNoteBody?.text.toString().trim()
 
-            if (title.isNotEmpty()) {
+            if (title.isNotEmpty() && body.isNotEmpty()) {
                 // Pass the same note
                 val note = Note(currentNote.id, title, body)
                 notesViewModel.updateNote(note)
                 view.findNavController().navigate(R.id.action_updateNoteFragment_to_homeFragment)
             } else {
-                Toast.makeText(context, "Please enter note title", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Please enter both title and body", Toast.LENGTH_LONG).show()
             }
         }
     }

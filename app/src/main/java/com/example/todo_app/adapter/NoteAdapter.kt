@@ -27,8 +27,9 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     private val differ = AsyncListDiffer(this, differCallback)
 
-    fun getDiffer(): AsyncListDiffer<Note> {
-        return differ
+    // Expose submitList method to update the list from the Activity/Fragment
+    fun submitList(notes: List<Note>) {
+        differ.submitList(notes)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {

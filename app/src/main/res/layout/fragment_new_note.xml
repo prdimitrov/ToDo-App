@@ -58,7 +58,6 @@
                     android:inputType="text"
                     android:textColor="#000000"
                     android:textColorHint="@color/hintColor" />
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

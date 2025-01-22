@@ -67,7 +67,7 @@
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/secondaryColor"
             android:clickable="true"
-            android:contentDescription=""
+            android:contentDescription="Save Note"
             android:src="@drawable/outline_done_24"
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
