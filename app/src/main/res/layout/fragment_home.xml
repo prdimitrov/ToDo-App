@@ -49,8 +49,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="50dp"
+                android:background="@color/colorPrimary"
                 android:text="There are no notes"
-                android:textColor="#000000"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
 
