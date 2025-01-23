@@ -54,7 +54,7 @@
                     android:ems="10"
                     android:gravity="start|top"
                     android:hint="Write something here..."
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:textColor="#000000"
                     android:textColorHint="@color/hintColor" />
             </LinearLayout>
